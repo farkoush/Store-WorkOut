@@ -1,35 +1,81 @@
-import React, { useState } from 'react';
-// import './Login.css';
+import React, { useEffect, useState } from 'react';
+import styles from './SignUp.module.css';
+import {validate} from '../helper/validation';
+import {Link} from 'react-router-dom';
+
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    const[data, SetData] = useState({
+        email : '',
+        password: '',
+    });
+    const [errors, setErrors] = useState({});
+    const [touched, setTouched] = useState({
+        email: false,
+        password: false,
+    });
 
     const changeHandler = (element) => {
-        switch (element.target.name) {
-            case 'email':
-                setEmail(element.value)
-                break;
-            case 'password':
-                setPass(element.value)
-                break;
-            default:
-                break;
-        } 
+        SetData({
+            ...data,
+            [element.target.name] : element.target.value
+        });
     }
+
+    const focusHandler = (element) => {
+        setTouched({
+            ...touched,
+            [element.target.name] : true
+        })
+    }
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+        console.log(Object.keys(errors))
+        if (!Object.keys(errors).length){
+            console.log('You are signUp');}
+        else{
+            setTouched({
+                name : errors.name && true,
+                email : errors.email && true,
+                password : errors.password && true,
+                confirmPassword : errors.confirmPassword && true
+            })
+        }
+    }
+    useEffect( () => {
+        setErrors(validate(data, 'login'));
+    }, [data]);
+
     return (
-        <div className='screen-1'>
-            {/* <form> */}
-                <div className='password'>
-                    {/* <label for="email">Email Address</label> */}
-                    <input name='email' type='text' value={email} onChange={changeHandler}  placeholder="Username@gmail.com"/>
+        <div className={styles.screen}>
+            <h1 className={styles.header}>Login</h1>
+            <form onSubmit={submitHandler}>
+                <div className= {styles.email}>
+                    <input 
+                        className= { errors.email && touched.email && styles.hasError} 
+                        name ='email' 
+                        type ='text' value = {data.email} 
+                        onChange = {changeHandler}  
+                        onFocus = { focusHandler }
+                        placeholder = "Username@gmail.com"
+                    />
+                    {errors.email && touched.email && <span className = {styles.error}>{errors.email}</span>}
                 </div>
-                <div className='email'>
-                    {/* <label for="password">Password</label> */}
-                    <input name='password' type='password' value={pass}  onChange={changeHandler} placeholder="············"/>
+                <div className = {styles.password}>
+                    <input 
+                        className= { errors.password && touched.password && styles.hasError} 
+                        name = 'password' 
+                        type = 'password' 
+                        value = {data.password}  
+                        onChange = {changeHandler}
+                        onFocus = { focusHandler } 
+                        placeholder = "············"
+                    />
+                    {errors.password && touched.password && <span className = {styles.error}>{errors.password}</span>}
                 </div>
-                <button className="login">Login </button>
-            {/* </form> */}
-            <div className="footer"><span>Signup</span><span>Forgot Password?</span></div>
+                <button className={styles.SignUp}>Login </button>
+            </form>
+            <div className={styles.footer}><Link to ='/signup'>SignUp</Link></div>
         </div>
     );
 };
