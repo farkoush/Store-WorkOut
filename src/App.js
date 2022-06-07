@@ -1,5 +1,4 @@
-import Login from './components/Login'
-import SignUp from './components/SignUp'
+import {Login, SignUp, ProductGrid, ProductCard} from './components/index'
 import { Routes, Route, Link, Navigate } from 'react-router-dom';
 
 
@@ -11,7 +10,8 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/" element={<Navigate to ="/signup" />} />
+        {/* <Route path="/" element={<Navigate to ="/signup" />} /> */}
+        <Route path = "/" element = {<ProductGrid/>}/>
       </Routes>
     </div>
   );
