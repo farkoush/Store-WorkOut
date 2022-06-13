@@ -1,8 +1,9 @@
-import {Login, SignUp, ProductGrid, ProductCard} from './components/index'
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
+import {Login, SignUp} from './components/index'
+import { Routes, Route} from 'react-router-dom';
 
 
 import './App.css';
+import ListPage from './pages/ListPage';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         {/* <Route path="/" element={<Navigate to ="/signup" />} /> */}
-        <Route path = "/" element = {<ProductGrid/>}/>
+        <Route path = "/" element = {<ListPage/>}/>
       </Routes>
     </div>
   );

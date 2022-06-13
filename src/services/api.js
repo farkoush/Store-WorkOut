@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const SearchProductsByTitleService = queryString => {
+const getApi = queryString => {
+  const BaseURL = 'https://api.malltina.net'
   return new Promise((resolve, reject) => {
     axios
-      .get(`https://api.malltina.net/search/v2?q=${queryString}`)
+      .get(`${BaseURL}/search/v2?q=${queryString}`)
       .then(response => {
         if(response && response.data && response.data.products){
           resolve(response.data.products);
@@ -16,4 +17,4 @@ const SearchProductsByTitleService = queryString => {
   });
 };
 
-export default SearchProductsByTitleService;
+export default getApi;
