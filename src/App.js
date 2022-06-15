@@ -1,20 +1,22 @@
-import {Login, SignUp} from './components/index'
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route, Navigate, useParams } from 'react-router-dom';
 
-
-import './App.css';
+//components
+import {Login, SignUp, ProductDetails, ProductsGrid} from './components/index'
 import ListPage from './pages/ListPage';
+
+import ProductsContextProvider from './context/ProductsContextProvider';
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-        {/* <Route path="/" element={<Navigate to ="/signup" />} /> */}
-        <Route path = "/" element = {<ListPage/>}/>
-      </Routes>
-    </div>
+    <ProductsContextProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path = "/products" element = {<ProductsGrid/>}/>
+          <Route path = "/products/:id" element = {<ProductDetails/>}/>
+          <Route path="*" element={<Navigate to ="/signup" />} />
+        </Routes>
+    </ProductsContextProvider>
   );
 }
 

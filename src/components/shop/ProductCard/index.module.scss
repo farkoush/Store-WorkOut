@@ -1,9 +1,9 @@
-.PluginCard {
+/* Product Card style */
+.ProductCardContainer {
     display: flex;
-    border : 1px solid gray;
-    border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
     // @apply h-full;
     // @apply flex;
     // @apply flex-wrap;
@@ -11,8 +11,12 @@
     // @apply p-5;
     // @apply border-2 border-solid border-gray-200;
     // @apply rounded-xl;
-    > div {
-
+    .Thumbnail{
+      img{
+        
+        width: 200px;
+        height: 200px;
+      }
     }
     .Details {
       // @apply basis-[calc(100%-3rem)];

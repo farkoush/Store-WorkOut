@@ -1,0 +1,16 @@
+/* Products Grid style */
+.ProductsGridContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    .ProductItem{
+        display: flex;
+        flex-direction: column;
+        flex-basis: 32%;
+        border : 1px solid gray;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+}

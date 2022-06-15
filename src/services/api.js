@@ -1,20 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 
-const getApi = queryString => {
-  const BaseURL = 'https://api.malltina.net'
-  return new Promise((resolve, reject) => {
-    axios
-      .get(`${BaseURL}/search/v2?q=${queryString}`)
-      .then(response => {
-        if(response && response.data && response.data.products){
-          resolve(response.data.products);
-        } else {
-          resolve([])
-        }
-        
-      })
-      .catch(error => reject('error on Fetching data'));
-  });
+const BASE_URL = 'https://fakestoreapi.com';
+const getApi = async() => {
+   const response = await axios.get(`${BASE_URL}/products`);
+   return response.data
 };
 
 export default getApi;

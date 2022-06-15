@@ -1,26 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import { ProductGrid } from '../components';
-import getApi from  '../services/api'
+import { ProductsGrid } from '../components';
+import styles from "./ListPage.module.scss";
 
-const ListPage = () => {
-    // https://api.malltina.net/search/v2?q=apple
-    const [data, setData] = useState();
+const ListPage = (props) => {
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const serviceResult = getApi('test');
-        serviceResult.then(data => {
-            setIsLoading(false);
-            setData(data);
-        });
-    },[isLoading])
+    // useEffect(() => {
+    //     const fetchAPI = async () => {
+    //         setIsLoading(false);
+    //     }
+    //     fetchAPI();
+    // },[])
     
     return (
-        <div>
-            {isLoading && <p>Loading</p>}
-            {!isLoading &&
-                <ProductGrid data = {data}/>
-            }
+        <div  className={styles.ListPage}>
+            {/* {isLoading && <p>Loading</p>}
+            {!isLoading && */}
+                <ProductsGrid/>
+            {/* } */}
         </div>
     );
 };
