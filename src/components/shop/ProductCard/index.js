@@ -22,8 +22,14 @@ const ProductCard = ({item}) => {
                 <Link to={`/products/${item.id}/`}>Details</Link>
                 {
                     isInCart(state, item.id ) ?
-                    <button>+</button> :
-                    <button onClick={() => dispatch({type: 'ADD_CART', payload: item})}>Add to Cart</button>
+                    <div>
+
+                        <button onClick={() => dispatch({type:'INCREASE' , payload:item})}>+</button>
+                        <button onClick={() => dispatch({type: 'REMOVE_CART', payload: item})}>Remove</button>
+                    </div>:
+                    <div>
+                        <button onClick={() => dispatch({type: 'ADD_CART', payload: item})}>Add to Cart</button>
+                    </div>
                 }
         </div>
         </div>
