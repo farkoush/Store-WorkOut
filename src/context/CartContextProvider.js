@@ -1,13 +1,15 @@
 import React, { useReducer } from 'react';
 import { createContext } from 'react';
-import {isInCart} from '../helper'
+import {isInCart, totalCart} from '../helper'
 const initialState = {
     itemsSelected : [],
-
-
+    totalItems : 0,
+    totalPrices : 0,
+    checkout : false,
 }
+
 const cartReducer = (state, action) => {
-    // console.log(state);
+    console.log(state);
     switch (action.type) {
             case 'ADD_CART':
                 if (!isInCart(state,action.payload.id)){
@@ -18,7 +20,8 @@ const cartReducer = (state, action) => {
                 }
                 return {
                     ...state,
-                    itemsSelected : [...state.itemsSelected]
+                    itemsSelected : [...state.itemsSelected],
+                    ...totalCart(state.itemsSelected)
                 }
             
             case 'REMOVE_CART':
@@ -26,7 +29,8 @@ const cartReducer = (state, action) => {
                 return{
                     ...state,
                     // itemsSelected: newItemSelected
-                    itemsSelected: [...newItemSelected]
+                    itemsSelected: [...newItemSelected],
+                    ...totalCart(state.itemsSelected)
                 }
 
             case 'INCREASE':
@@ -36,6 +40,7 @@ const cartReducer = (state, action) => {
                     state.itemsSelected[indexI].quantity++;
                     return{
                         ...state,
+                        ...totalCart(state.itemsSelected)
                     }
                 }
             

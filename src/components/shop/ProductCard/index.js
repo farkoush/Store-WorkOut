@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../../context/CartContextProvider';
 
 //helper
-import { isInCart } from '../../../helper';
+import { isInCart, quantityCounter } from '../../../helper';
 
 const ProductCard = ({item}) => {
     const {state,dispatch} = useContext(CartContext);
@@ -23,9 +23,11 @@ const ProductCard = ({item}) => {
                 {
                     isInCart(state, item.id ) ?
                     <div>
-
                         <button onClick={() => dispatch({type:'INCREASE' , payload:item})}>+</button>
-                        <button onClick={() => dispatch({type: 'REMOVE_CART', payload: item})}>Remove</button>
+                        {quantityCounter(state, item.id) === 1 &&
+                            <button onClick={() => dispatch({type: 'REMOVE_CART', payload: item})}>Remove</button>}
+                        {quantityCounter(state, item.id) > 1 &&
+                            <button onClick={() => dispatch({type: 'DECREASE', payload: item})}>-</button>}
                     </div>:
                     <div>
                         <button onClick={() => dispatch({type: 'ADD_CART', payload: item})}>Add to Cart</button>
