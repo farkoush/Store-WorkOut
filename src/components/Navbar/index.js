@@ -12,9 +12,7 @@ const Navbar = () => {
         <div>
             <Link to='/products'>Products</Link>
             <div>
-                <p>------------</p>
                 <span>{state.totalItems}</span>
-                <p>++++++++++</p>
             </div>
         </div>
     );

@@ -30,7 +30,8 @@ const cartReducer = (state, action) => {
                     ...state,
                     // itemsSelected: newItemSelected
                     itemsSelected: [...newItemSelected],
-                    ...totalCart(state.itemsSelected)
+                    totalItems : 0,
+                    totalPrices : 0,
                 }
 
             case 'INCREASE':
@@ -51,6 +52,7 @@ const cartReducer = (state, action) => {
                     state.itemsSelected[indexِD].quantity--;
                     return{
                         ...state,
+                        ...totalCart(state.itemsSelected)
                     }
                 }
         default:

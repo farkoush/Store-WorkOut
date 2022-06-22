@@ -39,6 +39,7 @@
   "devDependencies": {
     "axios": "^0.27.2",
     "sass": "^1.52.2",
-    "scss": "^0.2.4"
+    "scss": "^0.2.4",
+    "styled-components": "^5.3.5"
   }
 }

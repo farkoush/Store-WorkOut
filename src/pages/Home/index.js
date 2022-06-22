@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import { ProductsGrid } from '../components';
-import styles from "./ListPage.module.scss";
+import { ProductsGrid } from '../../components';
+import styles from "./index.module.scss";
 
-const ListPage = (props) => {
+const HomePage = (props) => {
     const [isLoading, setIsLoading] = useState(true);
 
     // useEffect(() => {
@@ -13,7 +13,7 @@ const ListPage = (props) => {
     // },[])
     
     return (
-        <div  className={styles.ListPage}>
+        <div  className={styles.HomePage}>
             {/* {isLoading && <p>Loading</p>}
             {!isLoading && */}
                 <ProductsGrid/>
@@ -22,4 +22,4 @@ const ListPage = (props) => {
     );
 };
 
-export default ListPage;
+export default HomePage;
