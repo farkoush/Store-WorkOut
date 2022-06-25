@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import {useParams, Link} from 'react-router-dom'
 //context
-import { ProductsContext } from '../../../context/ProductsContextProvider';
+import { ProductsContext } from '@context';
 
-import styles from './index.module.scss'
+import styles from './productDetails.module.scss'
 const ProductDetails = (props) => {
     const params = useParams();
     const products = useContext(ProductsContext)

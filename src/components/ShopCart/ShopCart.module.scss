@@ -1,0 +1,12 @@
+.CartContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 150px 175px 50px;
+    transition: all 0.2s ease;
+
+    .SectionContainer, .AsideContainer{
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+}

@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
-import styles from "./index.module.scss";
+import styles from "./ProductCard.module.scss";
 import { Link } from 'react-router-dom';
 
-import { CartContext } from '../../../context/CartContextProvider';
+import { CartContext } from '../../../../context';
+
+import cartIcon from '../../../../assets/svgs/cart.svg';
 
 //helper
-import { isInCart, quantityCounter } from '../../../helper';
+import { isInCart, quantityCounter, limitWords } from '../../../../utils/helper';
 
 const ProductCard = ({item}) => {
     const {state,dispatch} = useContext(CartContext);
@@ -15,11 +17,12 @@ const ProductCard = ({item}) => {
                 <div className={styles.Thumbnail}><img alt={item.title} src={item.image} /></div>
                 <div className={styles.Details}>
                     <h3 className={styles.Title}>
-                        {item.title}
+                        {limitWords(item.title, 2)}
                     </h3>
                     <p className={styles.Description}>{item.price}</p>
                 </div>
                 <Link to={`/products/${item.id}/`}>Details</Link>
+                <div className={styles.buttonContainer}>
                 {
                     isInCart(state, item.id ) ?
                     <div>
@@ -30,9 +33,10 @@ const ProductCard = ({item}) => {
                             <button onClick={() => dispatch({type: 'DECREASE', payload: item})}>-</button>}
                     </div>:
                     <div>
-                        <button onClick={() => dispatch({type: 'ADD_CART', payload: item})}>Add to Cart</button>
+                        <button onClick={() => dispatch({type: 'ADD_CART', payload: item})}><img src={cartIcon} alt="" /></button>
                     </div>
                 }
+                </div>
         </div>
         </div>
     );

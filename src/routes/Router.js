@@ -1,8 +1,7 @@
 import React from 'react';
-import { SignUp, Login, ProductsGrid, ProductDetails} from '../components'
+import { ProductsGrid, ProductDetails, ShopCart, MainLayout, StoreLayout} from '@components';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import {MainLayout, StoreLayout} from '../layouts';
-import { HomePage } from '../pages';
+import { HomePage, SignUp, Login } from '@pages';
 
 const Router = () => {
     const Routers = [
@@ -31,6 +30,12 @@ const Router = () => {
             isPrivate : false  
         },
         {
+            component : <ShopCart />,
+            path: '/cart',
+            layout: 'store',
+            isPrivate : false  
+        },
+        {
             component : <Navigate to ="/signup" />,
             path: '*',
             layout: 'main',
@@ -44,7 +49,9 @@ const Router = () => {
                         switch (layout) {
                             case 'main':
                                 return(
-                                    (<Route key={index} path={path} element={<MainLayout component={component}/>} />)
+                                //     (<Route key={index} path={path} element={<MainLayout component={component}/>} />)
+                                // )
+                                (<Route key={index} path={path} element={<MainLayout component={component}/>} />)
                                 )
 
                             default:

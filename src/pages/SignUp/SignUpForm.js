@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import styles from './SignUp.module.css';
-import {validate} from '../../helper/index';
-import {Link} from 'react-router-dom';
-
-const Login = () => {
+import styles from './SignUpForm.module.css'
+import {validate} from '@helper';
+import {Link} from 'react-router-dom'
+ const SignUp = () => {
     const[data, SetData] = useState({
+        name : '',
         email : '',
         password: '',
+        confirmPassword : ''
     });
     const [errors, setErrors] = useState({});
     const [touched, setTouched] = useState({
+        name: false,
         email: false,
         password: false,
+        confirmPassword: false,
     });
 
     const changeHandler = (element) => {
@@ -30,7 +33,6 @@ const Login = () => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        console.log(Object.keys(errors))
         if (!Object.keys(errors).length){
             console.log('You are signUp');}
         else{
@@ -43,16 +45,28 @@ const Login = () => {
         }
     }
     useEffect( () => {
-        setErrors(validate(data, 'login'));
+        setErrors(validate(data, 'signup'));
     }, [data]);
 
     return (
         <div className={styles.screen}>
-            <h1 className={styles.header}>Login</h1>
+            <h1 className={styles.header}>SignUp</h1>
             <form onSubmit={submitHandler}>
-                <div className= {styles.email}>
+                <div className={styles.item}>
+                    <input
+                        className= { errors.name && touched.name ? styles.hasError : styles.inputElement} 
+                        name = 'name' 
+                        type = 'text' 
+                        value = {data.name} 
+                        onChange = {changeHandler}
+                        onFocus = { focusHandler }  
+                        placeholder = "Name"
+                    />
+                    {errors.name && touched.name && <span className = {styles.error}>{errors.name}</span>}
+                </div>
+                <div className= {styles.item}>
                     <input 
-                        className= { errors.email && touched.email && styles.hasError} 
+                        className= { errors.email && touched.email ? styles.hasError : styles.inputElement} 
                         name ='email' 
                         type ='text' value = {data.email} 
                         onChange = {changeHandler}  
@@ -61,9 +75,9 @@ const Login = () => {
                     />
                     {errors.email && touched.email && <span className = {styles.error}>{errors.email}</span>}
                 </div>
-                <div className = {styles.password}>
+                <div className = {styles.item}>
                     <input 
-                        className= { errors.password && touched.password && styles.hasError} 
+                        className= { errors.password && touched.password ? styles.hasError : styles.inputElement} 
                         name = 'password' 
                         type = 'password' 
                         value = {data.password}  
@@ -73,11 +87,23 @@ const Login = () => {
                     />
                     {errors.password && touched.password && <span className = {styles.error}>{errors.password}</span>}
                 </div>
-                <button className={styles.SignUp}>Login </button>
+                <div className = {styles.item}>
+                    <input 
+                        className= { errors.confirmPassword && touched.confirmPassword  ? styles.hasError : styles.inputElement} 
+                        name = 'confirmPassword' 
+                        type = 'password' 
+                        value = {data.confirmPassword}  
+                        onChange = {changeHandler} 
+                        onFocus = { focusHandler }
+                        placeholder = "············"
+                    />
+                    {errors.confirmPassword && touched.confirmPassword && <span className = {styles.error}>{errors.confirmPassword}</span>}
+                </div>
+                <button className={styles.SignUp}>SignUp </button>
             </form>
-            <div className={styles.footer}><Link to ='/signup'>SignUp</Link></div>
+            <div className={styles.footer}><Link to = '/login'>Login</Link></div>
         </div>
     );
 };
 
-export default Login;
+export default SignUp;

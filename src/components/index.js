@@ -1,6 +1,10 @@
-export {default as Login} from './login/Login';
-export {default as SignUp} from './login/SignUp';
-export {default as ProductCard} from './shop/ProductCard';
-export {default as ProductsGrid} from './shop/ProductsGrid';
-export {default as ProductDetails} from './shop/productDetails';
-export {default as Navbar} from './Navbar';
+//global shared/reusable components, such as layout (wrappers, navigation), form components, buttons
+export {default as Header} from './layouts/Header';
+export {default as MainLayout} from './layouts/Main';
+export {default as StoreLayout} from './layouts/Store'
+
+export {default as ProductDetails} from './productDetails';
+export {default as ProductsGrid} from './ProductsGrid';
+export {default as ProductCard} from './shared/Card/ProductCard';
+export {default as Navbar} from './navigation/Navbar';
+export {default as ShopCart} from './ShopCart';

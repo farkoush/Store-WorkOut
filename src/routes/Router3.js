@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
-import {SignUp, Login, ProductsGrid, ProductDetails} from '../components'
+import {SignUp, Login, ProductsGrid, ProductDetails} from '@components'
 const mapRouter = [
   {
     path: "/login",
