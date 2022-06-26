@@ -7,6 +7,7 @@ module.exports = function override(config) {
     '@context': 'src/context',
     '@services': 'src/services',
     '@helper': 'src/utils/helper',
+    '@svgs'  : 'src/assets/svgs'
 
   })(config);
 
