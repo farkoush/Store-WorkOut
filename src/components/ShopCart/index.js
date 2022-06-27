@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styles from "./ShopCart.module.scss";
 
-import {CartContext} from '@context';
+import {CartContext} from 'context';
 const ShopCart = () => {
     const {state, dispatch} = useContext(CartContext);
     console.log(',,,,,,,,,,,,,,,,,,', state.itemsSelected)

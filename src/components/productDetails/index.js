@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {useParams, Link} from 'react-router-dom'
 //context
-import { ProductsContext } from '@context';
+import { ProductsContext } from 'context';
 
 import styles from './productDetails.module.scss'
 const ProductDetails = (props) => {

@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import { createContext } from 'react';
-import {isInCart, totalCart} from '@helper'
+import {isInCart, totalCart} from 'utils/helper'
 const initialState = {
     itemsSelected : [],
     totalItems : 0,

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { ProductsGrid } from '@components';
+import { ProductsGrid } from 'components';
 import styles from "./index.module.scss";
 
 const HomePage = (props) => {

@@ -2,12 +2,12 @@ import React, { useContext } from 'react';
 import styles from "./ProductCard.module.scss";
 import { Link } from 'react-router-dom';
 
-import { CartContext } from '@context';
+import { CartContext } from 'context';
 
-import {cartIcon} from '@svgs';
+import {cartIcon} from 'assets/svgs';
 
 //helper
-import { isInCart, quantityCounter, limitWords } from '../../../../utils/helper';
+import { isInCart, quantityCounter, limitWords } from 'utils/helper';
 
 const ProductCard = ({item}) => {
     const {state,dispatch} = useContext(CartContext);

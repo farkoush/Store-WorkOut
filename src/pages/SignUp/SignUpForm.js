@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SignUpForm.module.css'
-import {validate} from '@helper';
+import {validate} from 'utils/helper';
 import {Link} from 'react-router-dom'
  const SignUp = () => {
     const[data, SetData] = useState({

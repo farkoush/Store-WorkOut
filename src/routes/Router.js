@@ -1,8 +1,8 @@
 import React from 'react';
-import { ProductsGrid, ProductDetails, ShopCart} from '@components';
-import { MainLayout, StoreLayout} from '../components/layouts'
+import { ProductsGrid, ProductDetails, ShopCart} from 'components';
+import { MainLayout, StoreLayout} from 'components/layouts'
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { HomePage, SignUp, Login } from '@pages';
+import { HomePage, SignUp, Login } from 'pages';
 
 const Router = () => {
     const Routers = [

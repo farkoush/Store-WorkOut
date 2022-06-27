@@ -1,5 +1,5 @@
 import React, {useState,createContext, useEffect} from 'react';
-import getApi from '../services/api';
+import getApi from 'services/api';
 
 export const ProductsContext = createContext()
 const ProductsContextProvider = (props) => {

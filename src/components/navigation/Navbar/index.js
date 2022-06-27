@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { CartContext } from '@context';
+import { CartContext } from 'context';
 
-import {cartIcon} from '@svgs'
+import {cartIcon} from 'assets/svgs';
 
 const Navbar = () => {
     const {state} = useContext(CartContext)
