@@ -33,7 +33,7 @@ const ProductCard = ({item}) => {
                             <button onClick={() => dispatch({type: 'DECREASE', payload: item})}>-</button>}
                     </div>:
                     <div>
-                        <button onClick={() => dispatch({type: 'ADD_CART', payload: item})}><img src={cartIcon} alt="" /></button>
+                        <button aria-label="add-cart" onClick={() => dispatch({type: 'ADD_CART', payload: item})}><img src={cartIcon} alt="" /></button>
                     </div>
                 }
                 </div>

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { ProductsGrid } from 'components';
+import { MainContainer, ProductsGrid } from 'components';
 import styles from "./index.module.scss";
 
 const HomePage = (props) => {
@@ -13,12 +13,12 @@ const HomePage = (props) => {
     // },[])
     
     return (
-        <div  className={styles.HomePage}>
+        <MainContainer  className={styles.HomePage}>
             {/* {isLoading && <p>Loading</p>}
             {!isLoading && */}
                 <ProductsGrid/>
             {/* } */}
-        </div>
+        </MainContainer>
     );
 };
 

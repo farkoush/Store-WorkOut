@@ -1,20 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { CartContext } from 'context';
+import React, { useContext } from 'react';
 
-import {cartIcon} from 'assets/svgs';
+import { Link } from 'react-router-dom';
+
+import styles from './Navbar.module.scss';
+
+import { CartContext } from 'context';
+import { cartIcon } from 'assets/svgs';
 
 const Navbar = () => {
     const {state} = useContext(CartContext)
-    console.log('state----------')
-    console.log(state)
     return (
-        <div>
-            <Link to='/products'>Products</Link>
-            <div>
-                <img src={cartIcon} alt="" />
-                <span>{state.totalItems}</span>
+        <div className={styles.navbarContainer}>
+            <div className={styles.wrapper}>
+                <Link to='/products'>Products</Link>
+                <div>
+                    <img src={cartIcon} alt="" />
+                    <span>{state.totalItems}</span>
+                </div>
             </div>
         </div>
     );
