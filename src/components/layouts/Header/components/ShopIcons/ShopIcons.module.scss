@@ -1,0 +1,21 @@
+.iconContainer {
+    position: relative;
+    img {
+      width: 40px;
+      color: #1a73e8;
+    }
+    span {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: #0b499b;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      font-size: 0.75rem;
+      text-align: center;
+      font-weight: bold;
+      color: #fff;
+    }
+  }

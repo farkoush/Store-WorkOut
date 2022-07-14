@@ -8,7 +8,6 @@ const ProductsGrid = () => {
     if (products === undefined) return <div>Loading...</div>;
     return (
         <div className={styles.container}>
-            <div className= {styles.ProductsGridContainer}>
                 {products?.map((item) => {
                     return (
                             <div key={(item.id).toString()} className= {styles.ProductItem}>
@@ -16,7 +15,6 @@ const ProductsGrid = () => {
                             </div>                        
                     )
                 })}
-            </div>
         </div>
     );
 };

@@ -10,11 +10,11 @@ import { cartIcon } from 'assets/svgs';
 const Navbar = () => {
     const {state} = useContext(CartContext)
     return (
-        <div className={styles.navbarContainer}>
-            <div className={styles.wrapper}>
-                <Link to='/products'>Products</Link>
-                <div>
-                    <img src={cartIcon} alt="" />
+        <div className={styles.mainContainer}>
+            <div className={styles.container}>
+                <Link className={styles.productLink} to='/products'>Products</Link>
+                <div className={styles.iconContainer}>
+                    <Link to="/cart"><img src={cartIcon} /></Link>
                     <span>{state.totalItems}</span>
                 </div>
             </div>

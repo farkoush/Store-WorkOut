@@ -7,6 +7,12 @@ import { HomePage, SignUp, Login } from 'pages';
 const Router = () => {
     const Routers = [
         {
+            component : <StoreLayout/>,
+            path: '/',
+            layout: 'store',
+            isPrivate : false  
+        },
+        {
             component : <SignUp/>,
             path : '/signup',
             layout: 'main',
@@ -16,12 +22,6 @@ const Router = () => {
             component : <Login/>,
             path : '/login' ,
             layout: 'main',
-            isPrivate : false  
-        },
-        {
-            component : <HomePage />,
-            path: '/products',
-            layout: 'store',
             isPrivate : false  
         },
         {

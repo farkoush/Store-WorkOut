@@ -14,14 +14,16 @@ const ProductDetails = (props) => {
     console.log(product);
     const {title,description,image,price, category } = product;
     return (
-        <div className={styles.productDetailsContainer}>
-            <div className={styles.thumbnail}><img  alt="" src={image}/></div>
-            <div className={styles.details}>
+        <div className={styles.container}>
+            <div className={styles.thumbnail}><img  className={styles.image} alt="" src={image}/></div>
+            <div className={styles.textContainer}>
                 <h1>{title}</h1>
-                <p>{description}</p>
-                <p>category: {category}</p>
-                <p>{price} $</p>
-                <Link to="/products"> Back to shop </Link>
+                <p className={styles.description}>{description}</p>
+                <p className={styles.category}>category: {category}</p>
+                <div className={styles.buttonContainer}>
+                    <p className={styles.price}>{price} $</p>
+                    <Link to="/products"> Back to shop </Link>
+                </div>
             </div>
         </div>
     );

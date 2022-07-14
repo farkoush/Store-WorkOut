@@ -1,0 +1,13 @@
+.productLink {
+    text-decoration: none;
+    color: #1a73e8;
+    font-weight: bold;
+    border-bottom: 3px solid #1a73e8;
+    border-radius: 2px;
+    padding: 0 1px;
+    transition: all 0.2s ease;
+    &:hover {
+      color: #0b499b;
+      border-bottom-color: #0b499b;
+    }
+  }
